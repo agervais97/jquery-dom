@@ -7,9 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    <h1> Movie Rankings!</h1>
     <form action="">
-        <input type="text" id="movie-title" placeholder="Title">
-        <input type="text" id="movie-rating" placeholder="Rating">
+        <input type="text" id="movie-title" placeholder="Title" required>
+        <input type="number" min="0" max="10" id="movie-rating" placeholder="Rating"required>
         <button id="submit">Submit Me!</button>
     </form>
 
@@ -18,7 +19,10 @@
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
-
+        $('button').on('click', function(){
+            $('input').val().appendTo('body');
+            $("<button> Remove </button>")
+        })
     </script>
     
 </html>
