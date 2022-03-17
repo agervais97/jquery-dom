@@ -4,25 +4,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Movie Ratings</title>
 </head>
 <body>
     <h1> Movie Rankings!</h1>
+    <hr>
     <form action="">
         <input type="text" id="movie-title" placeholder="Title" required>
         <input type="number" min="0" max="10" id="movie-rating" placeholder="Rating"required>
-        <button id="submit">Submit Me!</button>
+        <button id="submit" type="submit">Submit Me!</button>
     </form>
+
+    <div id="ranking-list"></div>
 
 
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script>
-        $('button').on('click', function(){
-            $('input').val().appendTo('body');
-            $("<button> Remove </button>")
+        $('form').submit(function(e){
+            e.preventDefault();
         })
+
+        
+        $('button').on('click', function(){
+            const rating = $('<div id= rating></div>')
+            
+           
+            $('#rating').append($('#movie-title').val()); 
+            $('#rating').append($('#movie-rating').val());
+
+            const removeBtn = $('<button> Remove </button>');
+            $('#rating'). append(removeBtn); 
+
+            $('#ranking-list').append(rating)
+            removeBtn.attr('id', 'remove');
+            removeBtn.on('click', function(){
+                $('#rating').remove();
+            })
+        })
+
+       
     </script>
     
 </html>
